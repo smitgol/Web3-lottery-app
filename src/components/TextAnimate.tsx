@@ -1,14 +1,31 @@
-import { textTransform } from '@mui/system'
 import React, { useEffect, useState } from 'react'
-import { styled } from '@mui/system';
 
+import styled from 'styled-components'
 type Text = {
     text: string;
     duration: number;
 }
 
-const TextRender:React.FC<{renderElement: any, text: any, className:string}> = ({renderElement, text, className}) => {
-    return React.createElement(renderElement, { className: className},text)
+const TextRender:React.FC<{text: string, animationTime:number}> = ({text,animationTime}) => {
+    
+    const TextRenderElement = styled.h1`
+        width: fit-content;
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top:0;
+            border-left: 2px solid #fff;
+            background-color: rgba(9,14,52);
+            animation:  typing steps(${text.length});
+            animation-duration: ${animationTime}ms;
+            animation-delay: 60ms;
+            animation-iteration-count: infinite;
+        }
+    `
+    return <TextRenderElement>{text}</TextRenderElement>
 }
 const TextAnimate:React.FC<{texts: Array<Text>, TextRenderer: any}> = ({texts, TextRenderer}) => {
     const [count, setCount] = useState<number>(0)
@@ -26,7 +43,7 @@ const TextAnimate:React.FC<{texts: Array<Text>, TextRenderer: any}> = ({texts, T
     return (
         <div>
             <div className='animate-text'>
-                <TextRender text={texts[count].text} renderElement={TextRenderer} className={"animate-text-element"}></TextRender>
+                <TextRender text={texts[count].text} animationTime={texts[count].duration}></TextRender>
                 </div>
         </div>
     )

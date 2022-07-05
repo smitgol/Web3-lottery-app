@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
           >
             Decentralized Lottery System
           </Typography>
-          <TextAnimate texts={[{ text:'For The People', duration: 4000 }, {text:'By The People', duration: 4000}, {text:'Through The People', duration: 4000}]} TextRenderer={'h1'} />
+          <TextAnimate texts={[{ text:'For The People', duration: 4000 }, {text:'By The People', duration: 4000}, {text:'Through The People', duration: 5000}]} TextRenderer={'h1'} />
           <Typography
             variant="h5"
             sx={{ fontWeight: 500, width: "auto", opacity: 0.9, paddingTop: "32px" }}
