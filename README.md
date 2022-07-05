@@ -10,4 +10,4 @@ This is decentralized lottery system where, user money will be not owned by one 
 - Next.Js
 - Ether.Js
 
-Link link :- 
+Link link :- https://roaring-moxie-4a35e1.netlify.app/
